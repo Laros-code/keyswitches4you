@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyswitches4you</title>
+</head>
+<body>
+    <h1>Welkom bij Keyswitches4you</h1>
+    <form method="POST">
+        <button type="submit" name="hello_btn">Klik hier</button>
+        <button type="submit" name="check_price">check price</button>
+        <button type="submit" name="clear_btn">Clear</button>
+    </form>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    {% if stock_message %}
+        <p>{{ stock_message }}</p>
+    {% endif %}
+</body>
+</html>
