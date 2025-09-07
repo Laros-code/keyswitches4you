@@ -13,17 +13,9 @@ class UiHandler:
         self.bp.add_url_rule("/contact", "contact", self.contact)
 
     def home(self):
-        message = ""
-        stock_message = ""
-        if request.method == "POST":
-            if "hello_btn" in request.form:
-                message = self.logic.get_message()
-            elif "check_price" in request.form:
-                stock_message = str(self.logic.get_stockprice(0))
-            elif "clear_btn" in request.form:
-                message = ""
-                stock_message = ""
-        return render_template("index.html", message=message, stock_message=stock_message)
+
+        about_str = self.logic.get_about_small_text()
+        return render_template("index.html", about_data=about_str)
     
     def products(self):
         return render_template("products.html")
