@@ -8,6 +8,9 @@ class UiHandler:
 
         # Routes registreren
         self.bp.add_url_rule("/", "home", self.home, methods=["GET", "POST"])
+        self.bp.add_url_rule("/products", "products", self.products)
+        self.bp.add_url_rule("/about", "about", self.about)
+        self.bp.add_url_rule("/contact", "contact", self.contact)
 
     def home(self):
         message = ""
@@ -21,6 +24,16 @@ class UiHandler:
                 message = ""
                 stock_message = ""
         return render_template("index.html", message=message, stock_message=stock_message)
+    
+    def products(self):
+        return render_template("products.html")
+
+    def about(self):
+        return render_template("about.html")
+
+    def contact(self):
+        return render_template("contact.html")
+
 
     def register_routes(self, app: Blueprint):
         app.register_blueprint(self.bp)
