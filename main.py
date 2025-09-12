@@ -1,19 +1,20 @@
 from flask import Flask
 from modules.data.database_service import DatabaseService
 from modules.logic.logic_controller import LogicController
-from modules.ui.home import UiHandler
+from modules.ui.webapp import WebappController
+
 
 def main():
-    # Initieer lagen
-    data_layer = DatabaseService()
-    logic_layer = LogicController(data_layer)
-    ui_layer = UiHandler(logic_layer)
+    db_service = DatabaseService()
+    logic_controller = LogicController(db_service)
+    webapp_interface = WebappController(logic_controller)
 
     # Start Flask app
     app = Flask(__name__)
-    ui_layer.register_routes(app)
+    webapp_interface.register_routes(app)
 
     app.run(debug=True)
+
 
 if __name__ == "__main__":
     main()

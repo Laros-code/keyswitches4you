@@ -1,6 +1,5 @@
 class DatabaseService:
-    def get_message(self):
-        # Simpele data return
+    def get_message(self) -> str:
         return "Hello World"
 
     def get_price(self, item: int) -> float:
