@@ -9,7 +9,7 @@ def main():
     # create app
     app = Flask(__name__)
     #init pg16 database
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:Welkom01@localhost:5432/keyswitches4you-db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://admin:Welkom01@localhost:5432/keyswitches4you-db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     # connect to database
     db.init_app(app)

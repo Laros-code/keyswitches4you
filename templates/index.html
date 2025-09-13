@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/fontawesome.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/templatemo-sixteen.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/owl.css') }}">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/images/favicon.ico') }}">
+
 
 
 </head>
@@ -237,13 +239,8 @@
         </div>
         <div class="col-md-6">
           <div class="left-content">
-            <h4>{{ about_data.title }}</h4>
-            <p>{{ about_data.description }}</p>
-            <ul class="featured-list">
-              {% for item in about_data.list_items %}
-                <li><a> href="#">- {{ item }}</a></li>
-              {% endfor %}
-            </ul>
+            <h4>Test</h4>
+            <p>test p</p>
             <a href="{{ url_for('ui.about') }}" class="filled-button">Read More</a>
           </div>
         </div>
