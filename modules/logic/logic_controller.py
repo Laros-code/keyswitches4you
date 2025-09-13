@@ -12,15 +12,6 @@ class LogicController:
     def get_stockprice(self, item: int) -> float:
         return self.data.get_price(item)
 
-    def get_about_small_text(self) -> dict:
-        return {
-            "title": "Looking for the best products?",
-            "description": "This template is free to use for your business websites. However, you have no permission to redistribute the downloadable ZIP file on any template collection website.",
-            "list_items": [
-                "Lorem ipsum dolor sit amet",
-                "Consectetur an adipisicing elit",
-                "Itaquecorporis nulla aspernatur",
-                "Corporis, omnis doloremque",
-                "Non cum id reprehenderit",
-            ],
-        }
+    def get_page_content(self, page_name: str) -> str:
+        page = self.data.get_page_by_name(page_name)
+        return page.content if page else "Geen content gevonden"

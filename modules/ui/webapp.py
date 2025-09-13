@@ -12,8 +12,8 @@ class WebappController:
         self.bp.add_url_rule("/contact", "contact", self.contact)
 
     def home(self) -> str:
-        about_str = self.logic.get_about_small_text()
-        return render_template("index.html", about_data=about_str)
+        home_content = self.logic.get_page_content("home")
+        return render_template("index.html", home_data=home_content)
 
     def products(self) -> str:
         return render_template("products.html")
