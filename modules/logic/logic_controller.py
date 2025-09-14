@@ -6,14 +6,12 @@ class LogicController:
         self.data = data_service
 
     def get_header_intro_text(self) -> str:
-        return "Kaasboer"
+        page = self.data.retrieve_page("header_intro_text")
+        return page.value if page else "empty"
 
     def get_header_intro_text_extend(self) -> str:
-        return "Met spek!"
-
-    # def get_page_content(self, page_name: str) -> str:
-    #     page = self.data.get_page_by_name(page_name)
-    #     return page.content if page else "Geen content gevonden"
+        page = self.data.retrieve_page("header_intro_text_extend")
+        return page.value if page else "empty"
 
     def some_message(self) -> str:
         return "dit is gewoon een bericht"

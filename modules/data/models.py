@@ -1,10 +1,8 @@
-from flask_sqlalchemy import SQLAlchemy
+from . import database
 
-db = SQLAlchemy()  # wordt later in main() gekoppeld aan app
+class HomePagesServices(database.Model):
+    __tablename__ = 'homepage'
 
-class Page(db.Model):
-    __tablename__ = 'pages'
-
-    id = db.Column(db.Integer, primary_key=True)
-    page_name = db.Column(db.String(50), nullable=False)
-    content = db.Column(db.Text, nullable=False)
+    id = database.Column(database.Integer, primary_key=True)
+    key = database.Column(database.String(50), nullable=False, unique=True)
+    value = database.Column(database.Text, nullable=False)

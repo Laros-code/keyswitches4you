@@ -1,16 +1,17 @@
-from modules.data.models import Page
+from flask import Flask
+from . import database
+from modules.data.models import HomePagesServices
+
 
 class DatabaseService:
-    def __init__(self):
-        pass  # geen db nodig hier, we gebruiken gewoon het model
+    def __init__(self, app: Flask):
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://admin:Welkom01@localhost:5432/keyswitches4you-db'
+        app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+        database.init_app(app)
+        self.db = database
 
-    def get_message(self) -> str:
-        return "Hello World"
+    def get_database_object(self):
+        return self.db
 
-    def get_price(self, item: int) -> float:
-        if not item:
-            return 22.0
-        return 44.0
-
-    def get_page_by_name(self, page_name: str) -> Page | None:
-        return Page.query.filter_by(page_name=page_name).first()
+    def retrieve_page(self, key: str) -> HomePagesServices:
+        return HomePagesServices.query.filter_by(key=key).first()
